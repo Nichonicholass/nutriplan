@@ -166,7 +166,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
 
     return CustomScrollView(
       slivers: [
-        // Header
+
         SliverToBoxAdapter(
           child: Container(
             padding: EdgeInsets.only(
@@ -182,7 +182,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
             ),
             child: Column(
               children: [
-                // AppBar row
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
@@ -214,7 +214,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
                   ),
                 ),
 
-                // Plan Name + Goal
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
@@ -254,7 +254,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
           ),
         ),
 
-        // Nutrition Summary
+
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.all(20),
@@ -262,7 +262,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
           ),
         ),
 
-        // Meals Header
+
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
@@ -291,7 +291,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
           ),
         ),
 
-        // Meals List
+
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (context, index) {
@@ -309,7 +309,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
           ),
         ),
 
-        // Goal Suitability
+
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.all(20),
@@ -354,7 +354,7 @@ class _ResultContentState extends ConsumerState<_ResultContent> {
           ),
         ),
 
-        // Action Buttons
+
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),

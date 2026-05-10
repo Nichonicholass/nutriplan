@@ -3,7 +3,7 @@ import '../../data/models/meal_plan_model.dart';
 import '../../data/repositories/meal_plan_repository.dart';
 import '../../../../services/gemini/gemini_service.dart';
 
-// ─── REPOSITORY PROVIDER ───────────────────────────────────────────────────
+
 
 final mealPlanRepositoryProvider = Provider<MealPlanRepository>((ref) {
   return MealPlanRepository();
@@ -13,7 +13,7 @@ final geminiServiceProvider = Provider<GeminiService>((ref) {
   return GeminiService();
 });
 
-// ─── MEAL PLAN GENERATION FORM STATE ──────────────────────────────────────
+
 
 class MealPlanFormState {
   final String goal;
@@ -71,7 +71,7 @@ final mealPlanFormProvider = NotifierProvider<MealPlanFormNotifier, MealPlanForm
   () => MealPlanFormNotifier(),
 );
 
-// ─── CURRENT MEAL PLAN PROVIDER ────────────────────────────────────────────
+
 
 class MealPlanGeneratorNotifier extends AsyncNotifier<MealPlanModel?> {
   @override
@@ -112,7 +112,7 @@ class MealPlanGeneratorNotifier extends AsyncNotifier<MealPlanModel?> {
       final updatedMeals = List<MealItem>.from(currentPlan.meals);
       updatedMeals[mealIndex] = newMeal;
 
-      // Recalculate nutrition
+
       final newNutrition = _recalculateNutrition(updatedMeals, currentPlan);
 
       state = AsyncData(currentPlan.copyWith(
@@ -120,7 +120,7 @@ class MealPlanGeneratorNotifier extends AsyncNotifier<MealPlanModel?> {
         nutritionSummary: newNutrition,
       ));
     } catch (e) {
-      // Keep current state on error, just notify via snackbar from UI
+
     }
   }
 
@@ -149,7 +149,7 @@ final mealPlanGeneratorProvider = AsyncNotifierProvider<MealPlanGeneratorNotifie
   () => MealPlanGeneratorNotifier(),
 );
 
-// ─── SAVED PLANS PROVIDER ──────────────────────────────────────────────────
+
 
 class SavedPlansNotifier extends AsyncNotifier<List<MealPlanModel>> {
   @override

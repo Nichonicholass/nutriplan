@@ -2,13 +2,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/constants/app_constants.dart';
 
-// ─── SHARED PREFERENCES ────────────────────────────────────────────────────
+
 
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError('Must be overridden in ProviderScope');
 });
 
-// ─── APP THEME PROVIDER ────────────────────────────────────────────────────
+
 
 class ThemeNotifier extends Notifier<bool> {
   @override
@@ -25,7 +25,7 @@ class ThemeNotifier extends Notifier<bool> {
 
 final themeProvider = NotifierProvider<ThemeNotifier, bool>(() => ThemeNotifier());
 
-// ─── ONBOARDING PROVIDER ───────────────────────────────────────────────────
+
 
 class OnboardingNotifier extends Notifier<bool> {
   @override
@@ -42,7 +42,7 @@ class OnboardingNotifier extends Notifier<bool> {
 
 final onboardingProvider = NotifierProvider<OnboardingNotifier, bool>(() => OnboardingNotifier());
 
-// ─── USER PROFILE PROVIDER ─────────────────────────────────────────────────
+
 
 class UserProfile {
   final String name;

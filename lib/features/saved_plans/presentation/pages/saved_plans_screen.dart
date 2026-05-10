@@ -167,7 +167,7 @@ class _SavedPlanCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Header bar
+
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             decoration: BoxDecoration(
@@ -235,7 +235,7 @@ class _SavedPlanCard extends StatelessWidget {
             ),
           ),
 
-          // Stats row
+
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -248,7 +248,7 @@ class _SavedPlanCard extends StatelessWidget {
             ),
           ),
 
-          // Meal names preview
+
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
             child: Wrap(
@@ -272,7 +272,7 @@ class _SavedPlanCard extends StatelessWidget {
             ),
           ),
 
-          // Delete button
+
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: Row(

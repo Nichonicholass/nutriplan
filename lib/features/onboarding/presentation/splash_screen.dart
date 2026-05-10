@@ -39,7 +39,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Logo
+
               Container(
                 width: 100,
                 height: 100,
@@ -66,7 +66,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
               const SizedBox(height: 24),
 
-              // App Name
+
               const Text(
                 'NutriPlan AI',
                 style: TextStyle(
@@ -97,7 +97,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
               const SizedBox(height: 80),
 
-              // Loading indicator
+
               SizedBox(
                 width: 120,
                 child: LinearProgressIndicator(

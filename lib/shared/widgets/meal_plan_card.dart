@@ -27,7 +27,7 @@ class MealPlanCard extends ConsumerWidget {
       ),
       child: Row(
         children: [
-          // Icon
+
           Container(
             width: 48,
             height: 48,
@@ -44,7 +44,7 @@ class MealPlanCard extends ConsumerWidget {
           ),
           const SizedBox(width: 12),
 
-          // Info
+
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +118,7 @@ class MealPlanCard extends ConsumerWidget {
             ),
           ),
 
-          // Arrow
+
           const Icon(Icons.arrow_forward_ios_rounded, size: 14, color: AppColors.textMuted),
         ],
       ),

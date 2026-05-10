@@ -11,10 +11,8 @@ import 'core/theme/app_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Load environment variables from .env (optional)
   await Env.load('.env');
 
-  // System UI
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.light,
@@ -22,10 +20,8 @@ void main() async {
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  // Initialize Hive
   await Hive.initFlutter();
 
-  // Initialize SharedPreferences
   final prefs = await SharedPreferences.getInstance();
 
   runApp(

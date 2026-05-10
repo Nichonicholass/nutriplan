@@ -1,10 +1,10 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+
 
 part of 'meal_plan_model.dart';
 
-// **************************************************************************
-// TypeAdapterGenerator
-// **************************************************************************
+
+
+
 
 class MealItemAdapter extends TypeAdapter<MealItem> {
   @override

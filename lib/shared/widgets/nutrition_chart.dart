@@ -57,7 +57,7 @@ class NutritionSummaryCard extends StatelessWidget {
 
           const SizedBox(height: 16),
 
-          // Calorie progress bar
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -99,7 +99,7 @@ class NutritionSummaryCard extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Macros row
+
           Row(
             children: [
               _MacroBar(

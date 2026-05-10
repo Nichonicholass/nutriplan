@@ -4,7 +4,7 @@ import '../../core/utils/env_loader.dart';
 import '../../features/meal_plan/data/models/meal_plan_model.dart';
 import '../../core/constants/app_constants.dart';
 
-// Allow passing GROQ_API_KEY via --dart-define at build/runtime.
+
 const String _kGroqApiKeyFromDefine = String.fromEnvironment('GROQ_API_KEY', defaultValue: '');
 
 class GeminiService {
@@ -69,7 +69,7 @@ class GeminiService {
     return content;
   }
 
-  // ─── MAIN MEAL PLAN GENERATOR ─────────────────────────────────────────────
+
 
   Future<MealPlanModel> generateMealPlan({
     required String goal,
@@ -105,7 +105,7 @@ class GeminiService {
     }
   }
 
-  // ─── SINGLE MEAL REGENERATE ────────────────────────────────────────────────
+
 
   Future<MealItem> regenerateSingleMeal({
     required String mealType,
@@ -134,7 +134,7 @@ class GeminiService {
     }
   }
 
-  // ─── GROCERY LIST REGENERATE ───────────────────────────────────────────────
+
 
   Future<List<GroceryItem>> generateGroceryList(List<MealItem> meals) async {
     final mealNames = meals.map((m) => '${m.name} (${m.ingredients.join(', ')})').join('\n');
@@ -171,7 +171,7 @@ Combine duplicate ingredients with adjusted quantities.
     }
   }
 
-  // ─── PROMPT BUILDERS ──────────────────────────────────────────────────────
+
 
   String _buildMealPlanPrompt({
     required String goal,
@@ -293,17 +293,17 @@ Respond ONLY with this exact JSON (single meal object):
 ''';
   }
 
-  // ─── HELPERS ──────────────────────────────────────────────────────────────
+
 
   String _extractJson(String text) {
-    // Remove markdown code blocks if present
+
     final jsonRegex = RegExp(r'```(?:json)?\s*([\s\S]*?)\s*```');
     final match = jsonRegex.firstMatch(text);
     if (match != null) {
       return match.group(1)!.trim();
     }
 
-    // Find JSON object boundaries
+
     final start = text.indexOf('{');
     final end = text.lastIndexOf('}');
     if (start != -1 && end != -1) {

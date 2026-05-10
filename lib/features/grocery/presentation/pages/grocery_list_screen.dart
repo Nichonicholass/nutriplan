@@ -82,7 +82,7 @@ class _GroceryListScreenState extends ConsumerState<GroceryListScreen> {
           ? _buildEmpty(context)
           : CustomScrollView(
               slivers: [
-                // Header
+
                 SliverToBoxAdapter(
                   child: Container(
                     padding: EdgeInsets.only(
@@ -134,7 +134,7 @@ class _GroceryListScreenState extends ConsumerState<GroceryListScreen> {
                   ),
                 ),
 
-                // Progress bar
+
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
@@ -177,7 +177,7 @@ class _GroceryListScreenState extends ConsumerState<GroceryListScreen> {
                   ),
                 ),
 
-                // Categories
+
                 ...orderedKeys.map((category) {
                   final categoryItems = grouped[category]!;
                   return SliverToBoxAdapter(

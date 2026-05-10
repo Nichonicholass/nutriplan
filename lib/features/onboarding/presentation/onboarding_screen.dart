@@ -82,7 +82,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              // Skip button
+
               Align(
                 alignment: Alignment.topRight,
                 child: TextButton(
@@ -98,7 +98,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 ),
               ),
 
-              // Page View
+
               Expanded(
                 child: PageView.builder(
                   controller: _pageController,
@@ -108,12 +108,12 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 ),
               ),
 
-              // Bottom section
+
               Padding(
                 padding: const EdgeInsets.all(32),
                 child: Column(
                   children: [
-                    // Page indicator
+
                     SmoothPageIndicator(
                       controller: _pageController,
                       count: _pages.length,
@@ -127,7 +127,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     ),
                     const SizedBox(height: 32),
 
-                    // Next / Get Started button
+
                     SizedBox(
                       width: double.infinity,
                       height: 56,
@@ -192,7 +192,7 @@ class _OnboardingPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Emoji in gradient container
+
           Container(
             width: 140,
             height: 140,

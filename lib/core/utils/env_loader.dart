@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 class Env {
   static final Map<String, String> env = {};
 
-  /// Load a simple .env file with lines like KEY=VALUE
+
   static Future<void> load([String path = '.env']) async {
     String? content;
 
@@ -15,8 +15,6 @@ class Env {
       }
     } catch (_) {}
 
-    // On mobile, project root files are not directly accessible.
-    // Fallback to reading from bundled asset if available.
     if (content == null) {
       try {
         content = await rootBundle.loadString(path);

@@ -31,7 +31,7 @@ class GroceryItemTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Checkbox
+
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               width: 24,
@@ -51,7 +51,7 @@ class GroceryItemTile extends StatelessWidget {
 
             const SizedBox(width: 14),
 
-            // Info
+
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +80,7 @@ class GroceryItemTile extends StatelessWidget {
               ),
             ),
 
-            // Cost
+
             Text(
               'Rp ${item.estimatedCost.toStringAsFixed(0)}',
               style: TextStyle(

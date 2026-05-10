@@ -33,7 +33,7 @@ class MealPlanRepository {
           plans.add(plan);
         }
       } catch (_) {
-        // Skip corrupted entries
+
       }
     }
     plans.sort((a, b) => b.createdAt.compareTo(a.createdAt));

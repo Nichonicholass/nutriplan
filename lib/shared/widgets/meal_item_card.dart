@@ -32,7 +32,7 @@ class MealItemCard extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
+
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             decoration: BoxDecoration(
@@ -41,7 +41,7 @@ class MealItemCard extends ConsumerWidget {
             ),
             child: Row(
               children: [
-                // Meal type badge
+
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
@@ -66,7 +66,7 @@ class MealItemCard extends ConsumerWidget {
                   ),
                 ),
                 const Spacer(),
-                // Regenerate button
+
                 GestureDetector(
                   onTap: () => _showRegenerateOptions(context, ref),
                   child: Container(
@@ -97,7 +97,7 @@ class MealItemCard extends ConsumerWidget {
             ),
           ),
 
-          // Content
+
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -139,7 +139,7 @@ class MealItemCard extends ConsumerWidget {
 
                 const SizedBox(height: 14),
 
-                // Nutrition row
+
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -182,7 +182,7 @@ class MealItemCard extends ConsumerWidget {
 
                 const SizedBox(height: 12),
 
-                // Cost
+
                 Row(
                   children: [
                     const Icon(Icons.monetization_on_outlined, size: 14, color: AppColors.secondary),

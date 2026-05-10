@@ -25,7 +25,7 @@ class HomeScreen extends ConsumerWidget {
       backgroundColor: isDark ? AppColors.darkBg : AppColors.lightBg,
       body: CustomScrollView(
         slivers: [
-          // App Bar
+
           SliverToBoxAdapter(
             child: Container(
               padding: EdgeInsets.only(
@@ -69,7 +69,7 @@ class HomeScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  // Avatar
+
                   Container(
                     width: 52,
                     height: 52,
@@ -86,7 +86,7 @@ class HomeScreen extends ConsumerWidget {
             ),
           ),
 
-          // Stats Cards
+
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -96,7 +96,7 @@ class HomeScreen extends ConsumerWidget {
 
           const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-          // Generate Banner
+
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -106,7 +106,7 @@ class HomeScreen extends ConsumerWidget {
 
           const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-          // Quick Goal Selection
+
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(left: 24, right: 24, bottom: 12),
@@ -141,7 +141,7 @@ class HomeScreen extends ConsumerWidget {
 
           const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-          // Recent Plans Header
+
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -173,7 +173,7 @@ class HomeScreen extends ConsumerWidget {
             ),
           ),
 
-          // Recent Plans List
+
           savedPlansAsync.when(
             loading: () => const SliverToBoxAdapter(
               child: Padding(

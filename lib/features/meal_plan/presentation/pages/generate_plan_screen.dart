@@ -98,7 +98,7 @@ class _GeneratePlanScreenState extends ConsumerState<GeneratePlanScreen> {
                 ),
               ),
 
-              // ─── GOAL SELECTION ────────────────────────────────────────
+
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -128,7 +128,7 @@ class _GeneratePlanScreenState extends ConsumerState<GeneratePlanScreen> {
 
               const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-              // ─── BUDGET ────────────────────────────────────────────────
+
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -202,7 +202,7 @@ class _GeneratePlanScreenState extends ConsumerState<GeneratePlanScreen> {
 
               const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-              // ─── MEALS PER DAY ─────────────────────────────────────────
+
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -263,7 +263,7 @@ class _GeneratePlanScreenState extends ConsumerState<GeneratePlanScreen> {
 
               const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-              // ─── PREFERENCES ───────────────────────────────────────────
+
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -285,7 +285,7 @@ class _GeneratePlanScreenState extends ConsumerState<GeneratePlanScreen> {
 
               const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
-              // ─── ALLERGIES ─────────────────────────────────────────────
+
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -327,7 +327,7 @@ class _GeneratePlanScreenState extends ConsumerState<GeneratePlanScreen> {
             ],
           ),
 
-          // ─── GENERATE BUTTON (floating) ────────────────────────────────
+
           Positioned(
             bottom: 0,
             left: 0,
