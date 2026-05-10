@@ -16,8 +16,8 @@ class AppConstants {
   static const String userGoalKey = 'user_goal';
   static const String userBudgetKey = 'user_budget';
 
-  // Gemini Model
-  static const String geminiModel = 'gemini-2.0-flash';
+  // Groq Model
+  static const String groqModel = 'llama-3.3-70b-versatile';
 
   // Max saved plans
   static const int maxSavedPlans = 30;

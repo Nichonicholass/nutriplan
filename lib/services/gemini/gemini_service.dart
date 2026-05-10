@@ -1,25 +1,72 @@
 import 'dart:convert';
-import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:http/http.dart' as http;
+import '../../core/utils/env_loader.dart';
 import '../../features/meal_plan/data/models/meal_plan_model.dart';
 import '../../core/constants/app_constants.dart';
 
+// Allow passing GROQ_API_KEY via --dart-define at build/runtime.
+const String _kGroqApiKeyFromDefine = String.fromEnvironment('GROQ_API_KEY', defaultValue: '');
+
 class GeminiService {
-  static const String _apiKey = 'YOUR_GEMINI_API_KEY'; // Replace with actual key or use env
+  static const String _groqEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
 
-  late final GenerativeModel _model;
+  GeminiService();
 
-  GeminiService() {
-    _model = GenerativeModel(
-      model: AppConstants.geminiModel,
-      apiKey: _apiKey,
-      generationConfig: GenerationConfig(
-        temperature: 0.7,
-        topK: 40,
-        topP: 0.95,
-        maxOutputTokens: 4096,
-        responseMimeType: 'application/json',
-      ),
+  String _resolveApiKey() {
+    final apiKey = _kGroqApiKeyFromDefine.isNotEmpty
+        ? _kGroqApiKeyFromDefine
+        : (Env.env['GROQ_API_KEY'] ?? '');
+    if (apiKey.isEmpty) {
+      throw GeminiException(
+        'GROQ_API_KEY not set. Run with: flutter run --dart-define=GROQ_API_KEY=your_key',
+      );
+    }
+    return apiKey;
+  }
+
+  Future<String> _requestGroqJson(String prompt) async {
+    final apiKey = _resolveApiKey();
+    final response = await http.post(
+      Uri.parse(_groqEndpoint),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $apiKey',
+      },
+      body: jsonEncode({
+        'model': AppConstants.groqModel,
+        'temperature': 0.7,
+        'top_p': 0.95,
+        'max_tokens': 4096,
+        'messages': [
+          {
+            'role': 'system',
+            'content': 'You are NutriPlan AI. Always respond with valid JSON only.',
+          },
+          {
+            'role': 'user',
+            'content': prompt,
+          },
+        ],
+      }),
     );
+
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      throw GeminiException('Groq API error (${response.statusCode}): ${response.body}');
+    }
+
+    final data = jsonDecode(response.body) as Map<String, dynamic>;
+    final choices = data['choices'] as List<dynamic>?;
+    if (choices == null || choices.isEmpty) {
+      throw GeminiException('Groq API returned empty choices');
+    }
+
+    final message = choices.first['message'] as Map<String, dynamic>?;
+    final content = message?['content']?.toString() ?? '';
+    if (content.isEmpty) {
+      throw GeminiException('Groq API returned empty content');
+    }
+
+    return content;
   }
 
   // ─── MAIN MEAL PLAN GENERATOR ─────────────────────────────────────────────
@@ -40,8 +87,7 @@ class GeminiService {
     );
 
     try {
-      final response = await _model.generateContent([Content.text(prompt)]);
-      final text = response.text ?? '';
+      final text = await _requestGroqJson(prompt);
       final cleanedJson = _extractJson(text);
       final parsed = jsonDecode(cleanedJson) as Map<String, dynamic>;
 
@@ -79,8 +125,7 @@ class GeminiService {
     );
 
     try {
-      final response = await _model.generateContent([Content.text(prompt)]);
-      final text = response.text ?? '';
+      final text = await _requestGroqJson(prompt);
       final cleanedJson = _extractJson(text);
       final parsed = jsonDecode(cleanedJson) as Map<String, dynamic>;
       return MealItem.fromJson(parsed);
@@ -116,8 +161,7 @@ Combine duplicate ingredients with adjusted quantities.
 ''';
 
     try {
-      final response = await _model.generateContent([Content.text(prompt)]);
-      final text = response.text ?? '';
+      final text = await _requestGroqJson(prompt);
       final cleanedJson = _extractJson(text);
       final parsed = jsonDecode(cleanedJson) as Map<String, dynamic>;
       final groceryJson = parsed['grocery_list'] as List<dynamic>? ?? [];
