@@ -208,7 +208,6 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget _buildStatsRow(BuildContext context, UserProfile profile, AsyncValue savedPlansAsync) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final count = savedPlansAsync.value?.length ?? 0;
 
     return Row(

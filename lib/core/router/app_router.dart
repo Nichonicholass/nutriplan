@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../features/onboarding/presentation/splash_screen.dart';
@@ -13,7 +12,7 @@ import '../providers/app_providers.dart';
 import 'scaffold_with_nav.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
-  final onboardingDone = ref.watch(onboardingProvider);
+  ref.watch(onboardingProvider);
 
   return GoRouter(
     initialLocation: '/splash',
