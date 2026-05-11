@@ -8,6 +8,7 @@ import '../../features/meal_plan/presentation/pages/meal_plan_result_screen.dart
 import '../../features/grocery/presentation/pages/grocery_list_screen.dart';
 import '../../features/saved_plans/presentation/pages/saved_plans_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
+import '../../features/food_scanner/presentation/food_scanner_screen.dart';
 import '../providers/app_providers.dart';
 import 'scaffold_with_nav.dart';
 
@@ -83,6 +84,11 @@ final routerProvider = Provider<GoRouter>((ref) {
           final planId = state.extra as String?;
           return GroceryListScreen(planId: planId);
         },
+      ),
+      GoRoute(
+        path: '/scanner',
+        name: 'scanner',
+        builder: (context, state) => const FoodScannerScreen(),
       ),
     ],
   );

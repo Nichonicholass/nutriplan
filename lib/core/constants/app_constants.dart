@@ -17,9 +17,6 @@ class AppConstants {
   static const String userBudgetKey = 'user_budget';
 
 
-  static const String groqModel = 'llama-3.3-70b-versatile';
-
-
   static const int maxSavedPlans = 30;
 
 
